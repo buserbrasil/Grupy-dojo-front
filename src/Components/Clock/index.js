@@ -114,7 +114,7 @@ export default class Clock extends Component {
 
   decrementer = () => {
     setTimeout(() => {
-      workflow();
+      this.workflow();
     }, 1000)
   }
   
