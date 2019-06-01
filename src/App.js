@@ -1,8 +1,13 @@
 import React from "react";
 import "./App.css";
 
-import Routes from "./routes";
+import Clock from "./Components/Clock/index.js"
 
-const App = () => <Routes />;
+const App = () => <Clock 
+                   totalSessions={4}  
+                   codingTurnTime={4}
+                   codingBreakTime={2}
+                   queueLength={5}
+                   />;
 
 export default App;
