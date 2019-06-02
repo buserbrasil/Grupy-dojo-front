@@ -173,46 +173,46 @@ export default class Clock extends Component {
 
   render() {
     return (
-      <div class="container my-2">
-        <div class="row my-2">
-          <div class="col-md-4">
-            <div class="card" style={this.state.highlightItem === 'codingTurnTime' ? {backgroundColor: 'orange'} : {}}>
-              <h3 class="card-header text-center">Tempo pra codar</h3>
-              <h3 class="card-body card-text text-center">{this.toMmSs(this.state.codingTurnTime)}</h3>
+      <div className="container my-2">
+        <div className="row my-2">
+          <div className="col-md-4">
+            <div className="card" style={this.state.highlightItem === 'codingTurnTime' ? {backgroundColor: 'orange'} : {}}>
+              <h3 className="card-header text-center">Codar!</h3>
+              <h3 className="card-body card-text text-center">{this.toMmSs(this.state.codingTurnTime)}</h3>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card" style={this.state.highlightItem === 'codingBreakTime' ? {backgroundColor: 'orange'} : {}}>
-              <h3 class="card-header text-center">Descanso</h3>
-              <h3 class="card-body card-text text-center">{this.toMmSs(this.state.codingBreakTime)}</h3>
+          <div className="col-md-4">
+            <div className="card" style={this.state.highlightItem === 'codingBreakTime' ? {backgroundColor: 'orange'} : {}}>
+              <h3 className="card-header text-center">Descanso</h3>
+              <h3 className="card-body card-text text-center">{this.toMmSs(this.state.codingBreakTime)}</h3>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card" style={
+          <div className="col-md-4">
+            <div className="card" style={
               this.state.endend ?
               {backgroundColor: 'red', color:'white'} :
               {}
             }>
-              <h3 class="card-header text-center">Rodada</h3>
-              <h3 class="card-body card-text text-center">{`${this.state.queueTurn}`}</h3>
+              <h3 className="card-header text-center">Rodada</h3>
+              <h3 className="card-body card-text text-center">{`${this.state.queueTurn}`}</h3>
             </div>
           </div>
         </div>
 
         {
           this.state.endend ?
-          <div class="row d-flex justify-content-center" style={{color: "pink"}}><h3>Partida finalizada!</h3></div> :
+          <div className="row d-flex justify-content-center" style={{color: "pink"}}><h3>Partida finalizada!</h3></div> :
           ""         
         }
 
-        <div class="row d-flex justify-content-center">
-          <button class="btn btn-primary mr-2" onClick={this.handlePausePlayClock}>{
-            this.state.pauseFlag ? <i class="fas fa-play"></i> : <i class="fas fa-pause"></i>
+        <div className="row d-flex justify-content-center">
+          <button className="btn btn-primary mr-2" onClick={this.handlePausePlayClock}>{
+            this.state.pauseFlag ? <i className="fas fa-play"></i> : <i className="fas fa-pause"></i>
           }</button>
           {
             !this.state.nonStarted ?
-            <button class="btn btn-warning ml-2" onClick={this.handleReset}>
-              <i class="fas fa-undo"></i> Reiniciar
+            <button className="btn btn-warning ml-2" onClick={this.handleReset}>
+              <i className="fas fa-undo"></i> Reiniciar
             </button> :
             ""
           }
