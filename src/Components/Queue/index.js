@@ -5,11 +5,17 @@ export default class Queue extends Component {
     super(props);
     this.state = {
       newParticipant: "",
-      participants: []
+      participants: [],
+      queue: {
+        queueLength: this.props.queueLenght,
+        queueParticipants: []
+      }
     };
   }
 
-  handleAddNewParticipant = () => {
+  handleAddNewParticipant = e => {
+    if (e.KeyCode !== 32) return;
+
     const participant = this.state.newParticipant;
 
     this.state.participants.push(participant);
@@ -21,20 +27,40 @@ export default class Queue extends Component {
     this.setState({ newParticipant: e.target.value });
   };
 
+  handleCreateQueue = e => {
+    e.preventDefault();
+    const { queueParticipants } = this.state.queue;
+
+    this.setState({
+      queueParticipants: this.state.participants.map(participant =>
+        queueParticipants.push(participant)
+      )
+    });
+
+    this.setState({ queueLenght: queueParticipants.length });
+  };
+
   render() {
     return (
       <div>
-        <form onSubmit={this.handleAddNewParticipant}>
+        <form onSubmit={this.handleCreateQueue}>
           <input
-            placeholder="Informe o nome de um participante"
+            placeholder="Informe o nome dos participantes"
             value={this.state.newParticipant}
             onChange={this.handleInputChange}
+            onKeyDown={this.handleAddNewParticipant}
           />
-          <button type="submit">Adicionar</button>
+          <button type="submit">Criar fila</button>
         </form>
 
         <section>
-          <ul>{}</ul>
+          <ul>
+            {this.state.participants.map(participant => (
+              <li>
+                <span> participant </span>
+              </li>
+            ))}
+          </ul>
         </section>
       </div>
     );
