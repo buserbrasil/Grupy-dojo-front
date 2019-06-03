@@ -174,26 +174,26 @@ export default class Clock extends Component {
   render() {
     return (
       <div className="container my-2">
-        <div className="row my-2">
-          <div className="col-md-4">
+        <div>
+          <div className="my-2">
             <div className="card" style={this.state.highlightItem === 'codingTurnTime' ? {backgroundColor: 'orange'} : {}}>
-              <h3 className="card-header text-center">Codar!</h3>
+              <h5 className="card-header text-center">Codar!</h5>
               <h3 className="card-body card-text text-center">{this.toMmSs(this.state.codingTurnTime)}</h3>
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="my-2">
             <div className="card" style={this.state.highlightItem === 'codingBreakTime' ? {backgroundColor: 'orange'} : {}}>
-              <h3 className="card-header text-center">Descanso</h3>
+              <h5 className="card-header text-center">Trocar!</h5>
               <h3 className="card-body card-text text-center">{this.toMmSs(this.state.codingBreakTime)}</h3>
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="my-2">
             <div className="card" style={
               this.state.endend ?
               {backgroundColor: 'red', color:'white'} :
               {}
             }>
-              <h3 className="card-header text-center">Rodada</h3>
+              <h5 className="card-header text-center">Rodada</h5>
               <h3 className="card-body card-text text-center">{`${this.state.queueTurn}`}</h3>
             </div>
           </div>
