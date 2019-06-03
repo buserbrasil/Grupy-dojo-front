@@ -44,7 +44,7 @@ class App extends React.Component {
     e.preventDefault();
     let newQueue = [...this.state.queue];
     if (this.state.queueInput !== "") {
-      newQueue.push(this.state.queueInput)
+      newQueue.push(this.state.queueInput);
     }
     this.setState({queue: newQueue, queueInput: ''});
   }
@@ -57,7 +57,13 @@ class App extends React.Component {
 
   getFormData = (e) => {
     e.preventDefault();
-    this.setState({'formDone': true})
+    this.setState({'formDone': true});
+  }
+
+  handleDeleteQueueItem = (i) => {
+    let queue = [...this.state.queue];
+    queue.splice(i, 1);
+    this.setState({'queue': queue});
   }
 
   renderForm = () => {
@@ -100,9 +106,10 @@ class App extends React.Component {
               handleQueueInput={this.handleQueueInput}
               handleQueueSubmit={this.handleQueueSubmit}
               queueInput={this.state.queueInput}
-            />
+              />
             <Queue 
               queue={this.state.queue}
+              handleDeleteQueueItem={this.handleDeleteQueueItem}
             />
           </div>
         </div>   

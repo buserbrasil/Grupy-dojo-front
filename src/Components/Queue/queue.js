@@ -5,8 +5,15 @@ export default function Queue(props) {
     let queue = props.queue;
     for (let i = 0; i < queue.length; i++) {
         rows.push(
-            <li className="list-group-item">
+            <li key={i} name={i} className="list-group-item">
                 {i+1} - {queue[i]}
+                <button type="button" class="close" aria-label="Close" onClick={
+                    () => {
+                        props.handleDeleteQueueItem(i)
+                    }
+                }>
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </li>
         );
     }
