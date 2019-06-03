@@ -6,6 +6,24 @@ import Form from "./Components/Form/index.js"
 import Field from "./Components/Queue/field.js"
 import Queue from "./Components/Queue/queue.js"
 
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
 
 class App extends React.Component {
   constructor(props) {
@@ -57,7 +75,9 @@ class App extends React.Component {
 
   getFormData = (e) => {
     e.preventDefault();
-    this.setState({'formDone': true});
+    let queue = [...this.state.queue]
+    shuffle(queue)
+    this.setState({'formDone': true, 'queue': queue});
   }
 
   handleDeleteQueueItem = (i) => {
@@ -109,6 +129,7 @@ class App extends React.Component {
               />
             <Queue 
               queue={this.state.queue}
+              formDone={this.state.formDone}
               handleDeleteQueueItem={this.handleDeleteQueueItem}
             />
           </div>
