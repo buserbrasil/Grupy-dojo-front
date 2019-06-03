@@ -18,7 +18,7 @@ export default function Queue(props) {
         );
     }
     return (
-        <div className="w-100" style={{height: '500px', overflowY: 'scroll'}}>
+        <div className="w-100" style={{height: '500px', overflowY: 'auto'}}>
             <ul className="list-group">
                 {rows}
             </ul>

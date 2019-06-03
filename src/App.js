@@ -103,7 +103,7 @@ class App extends React.Component {
             totalSessions={parseInt(this.state.numberOfTurns)}  
             codingTurnTime={parseInt(this.state.codingSeconds)}
             codingBreakTime={parseInt(this.state.breakSeconds)}
-            queueLength={5}
+            queueLength={this.state.queue.length}
           />;
   }
 
