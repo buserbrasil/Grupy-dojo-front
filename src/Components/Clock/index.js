@@ -62,6 +62,7 @@ export default class Clock extends Component {
     this.resetCodingTurnTime();
     this.resetCodingBreakTime();
     this.incrementQueueCounter();
+    this.props.handleQueueShift();
   }
 
   newQueueTurn = () => {
