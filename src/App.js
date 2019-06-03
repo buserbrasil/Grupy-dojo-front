@@ -35,7 +35,6 @@ class App extends React.Component {
   handleQueueInput = (e) => {
     if (e.key === 'Enter') {
       this.handleQueueSubmit(e);
-      this.setState({queueInput: ''})
       return;
     }
     this.setState({queueInput: e.target.value});
@@ -44,8 +43,10 @@ class App extends React.Component {
   handleQueueSubmit = (e) => {
     e.preventDefault();
     let newQueue = [...this.state.queue];
-    newQueue.push(this.state.queueInput)
-    this.setState({queue: newQueue});
+    if (this.state.queueInput !== "") {
+      newQueue.push(this.state.queueInput)
+    }
+    this.setState({queue: newQueue, queueInput: ''});
   }
 
   handleQueueShift = () => {
@@ -98,6 +99,7 @@ class App extends React.Component {
             <Field 
               handleQueueInput={this.handleQueueInput}
               handleQueueSubmit={this.handleQueueSubmit}
+              queueInput={this.state.queueInput}
             />
             <Queue 
               queue={this.state.queue}

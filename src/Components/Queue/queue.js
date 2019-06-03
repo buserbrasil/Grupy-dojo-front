@@ -5,7 +5,7 @@ export default function Queue(props) {
     let queue = props.queue;
     for (let i = 0; i < queue.length; i++) {
         rows.push(
-            <li class="list-group-item">
+            <li className="list-group-item">
                 {i+1} - {queue[i]}
             </li>
         );

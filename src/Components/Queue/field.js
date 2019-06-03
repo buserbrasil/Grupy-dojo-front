@@ -2,14 +2,16 @@ import React from 'react';
 
 export default function Field(props) {
     return (
-        <div class="input-group mb-3">
+        <div className="input-group mb-3">
             <input 
                 className="form-control"
                 placeholder="Nick do Participante"
                 onChange={props.handleQueueInput}
+                onKeyPress={props.handleQueueInput}
+                value={props.queueInput}
             />
-            <div class="input-group-append">
-                <button class="btn btn-primary" onClick={props.handleQueueSubmit}>
+            <div className="input-group-append">
+                <button className="btn btn-primary" onClick={props.handleQueueSubmit}>
                     +!
                 </button>
             </div>
