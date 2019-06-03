@@ -68,9 +68,10 @@ class App extends React.Component {
   }
 
   handleQueueShift = () => {
-    let actualQueue = [...this.state.queue];
-    let actualFirst = actualQueue.shift();
-    actualQueue.push(actualFirst);
+    let newQueue = [...this.state.queue];
+    let actualFirst = newQueue.shift();
+    newQueue.push(actualFirst);
+    this.setState({queue: newQueue});
   }
 
   getFormData = (e) => {
@@ -104,6 +105,7 @@ class App extends React.Component {
             codingTurnTime={parseInt(this.state.codingSeconds)}
             codingBreakTime={parseInt(this.state.breakSeconds)}
             queueLength={this.state.queue.length}
+            handleQueueShift={this.handleQueueShift}
           />;
   }
 
