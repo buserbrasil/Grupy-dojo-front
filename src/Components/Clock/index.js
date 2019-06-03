@@ -16,7 +16,6 @@ export default class Clock extends Component {
       queueTurn: 0,
       codingTurnTime: this.props.codingTurnTime,
       codingBreakTime: this.props.codingBreakTime,
-      queueLength: this.props.queueLength,
       queueCounter: 0,
       pauseFlag: true,
       nonStarted: true,
@@ -92,7 +91,7 @@ export default class Clock extends Component {
   }
   
   checkQueueTurn = () => {
-    let queueLength = this.state.queueLength;
+    let queueLength = this.props.queueLength;
     let queueCounter = this.state.queueCounter;
     
     
