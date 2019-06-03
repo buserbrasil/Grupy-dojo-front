@@ -3,6 +3,8 @@ import "./App.css";
 
 import Clock from "./Components/Clock/index.js"
 import Form from "./Components/Form/index.js"
+import Field from "./Components/Queue/field.js"
+import Queue from "./Components/Queue/queue.js"
 
 
 class App extends React.Component {
@@ -12,6 +14,8 @@ class App extends React.Component {
       codingSeconds: '30',
       breakSeconds: '10',
       numberOfTurns: '1',
+      queueInput: '',
+      queue: [],
       formDone: false,
     }
   }
@@ -26,6 +30,28 @@ class App extends React.Component {
 
   handleNumberOfTurns = (e) => {
     this.setState({numberOfTurns: e.target.value});
+  }
+
+  handleQueueInput = (e) => {
+    if (e.key === 'Enter') {
+      this.handleQueueSubmit(e);
+      this.setState({queueInput: ''})
+      return;
+    }
+    this.setState({queueInput: e.target.value});
+  }
+
+  handleQueueSubmit = (e) => {
+    e.preventDefault();
+    let newQueue = [...this.state.queue];
+    newQueue.push(this.state.queueInput)
+    this.setState({queue: newQueue});
+  }
+
+  handleQueueShift = () => {
+    let actualQueue = [...this.state.queue];
+    let actualFirst = actualQueue.shift();
+    actualQueue.push(actualFirst);
   }
 
   getFormData = (e) => {
@@ -54,16 +80,30 @@ class App extends React.Component {
           />;
   }
 
-
-
   render() {
     return (
-      <div style={{height: '100%'}}>        
-        {
-          this.state.formDone ?
-          this.renderClock() :
-          this.renderForm()
-        }
+      <div className="container d-flex align-items-center justify-content-center" style={{height: '100%'}}>
+        <div className="row w-100">
+          <div className="col-6">
+            {
+              this.state.formDone ?
+              this.renderClock() :
+              this.renderForm()
+            }
+          </div>
+          <div className="col-6 p-3 bg-warning d-flex flex-column align-items-center">
+            <h3 className="text-center">
+              Fila
+            </h3>
+            <Field 
+              handleQueueInput={this.handleQueueInput}
+              handleQueueSubmit={this.handleQueueSubmit}
+            />
+            <Queue 
+              queue={this.state.queue}
+            />
+          </div>
+        </div>   
       </div>
     )
   }
