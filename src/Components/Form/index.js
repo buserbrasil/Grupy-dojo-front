@@ -47,6 +47,16 @@ export default class Form extends Component {
               onChange={this.props.handleNumberOfTurns}
               className="form-control"
               />
+            <label 
+              className="col-form-label-lg" 
+              htmlFor="shouldShuffle"
+            >Embaralhar?</label>
+            <input
+              name="shouldShuffle"
+              type="checkbox"
+              onClick={this.props.handleShouldShuffle}
+              checked={this.props.shouldShuffle ? 'checked' : undefined}
+            />
             <br/>
             <button
               onClick={this.props.getFormData}

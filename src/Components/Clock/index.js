@@ -232,12 +232,15 @@ export default class Clock extends Component {
         }
 
         <div className="row d-flex justify-content-center">
-          <button className="btn btn-primary mr-2" onClick={this.handlePausePlayClock}>{
+          <button className="btn btn-secondary mx-2" onClick={this.props.handleRerenderForm}>
+            <i className="fas fa-arrow-left"></i>
+          </button>
+          <button className="btn btn-primary mx-2" onClick={this.handlePausePlayClock}>{
             this.state.pauseFlag ? <i className="fas fa-play"></i> : <i className="fas fa-pause"></i>
           }</button>
           {
             !this.state.nonStarted ?
-            <button className="btn btn-warning ml-2" onClick={this.handleReset}>
+            <button className="btn btn-warning mx-2" onClick={this.handleReset}>
               <i className="fas fa-undo"></i> Reiniciar
             </button> :
             ""

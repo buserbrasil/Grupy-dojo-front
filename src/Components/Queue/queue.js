@@ -7,7 +7,7 @@ export default function Queue(props) {
         rows.push(
             <li key={i} name={i} className="list-group-item">
                 {props.formDone ? i+1 : undefined}{props.formDone ? " - " : undefined}{queue[i]}
-                <button type="button" class="close" aria-label="Close" onClick={
+                <button type="button" className="close" aria-label="Close" onClick={
                     () => {
                         props.handleDeleteQueueItem(i)
                     }

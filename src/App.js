@@ -35,6 +35,7 @@ class App extends React.Component {
       queueInput: '',
       queue: [],
       formDone: false,
+      shouldShuffle: true,
     }
   }
 
@@ -76,8 +77,10 @@ class App extends React.Component {
 
   getFormData = (e) => {
     e.preventDefault();
-    let queue = [...this.state.queue]
-    shuffle(queue)
+    let queue = [...this.state.queue];
+    if (this.state.shouldShuffle) {
+      shuffle(queue);
+    }
     this.setState({'formDone': true, 'queue': queue});
   }
 
@@ -85,6 +88,14 @@ class App extends React.Component {
     let queue = [...this.state.queue];
     queue.splice(i, 1);
     this.setState({'queue': queue});
+  }
+
+  handleRerenderForm = () => {
+    this.setState({'formDone': false});
+  }
+
+  handleShouldShuffle = (e) => {
+    this.setState({'shouldShuffle': !this.state.shouldShuffle})
   }
 
   renderForm = () => {
@@ -96,6 +107,8 @@ class App extends React.Component {
             handleBreakSecondsChange={this.handleBreakSecondsChange}
             handleNumberOfTurns={this.handleNumberOfTurns}
             getFormData={this.getFormData}
+            shouldShuffle={this.state.shouldShuffle}
+            handleShouldShuffle={this.handleShouldShuffle}
           />
   }
 
@@ -106,6 +119,7 @@ class App extends React.Component {
             codingBreakTime={parseInt(this.state.breakSeconds)}
             queueLength={this.state.queue.length}
             handleQueueShift={this.handleQueueShift}
+            handleRerenderForm={this.handleRerenderForm}
           />;
   }
 
