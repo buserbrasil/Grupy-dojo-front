@@ -24,7 +24,7 @@ export default class Form extends Component {
             <label 
               className="col-form-label-lg" 
               htmlFor="breakSeconds"
-              >Número de segundos de descanso</label>
+              >Número de segundos para troca de lugares</label>
             <input 
               name="breakSeconds"
               type="number"
