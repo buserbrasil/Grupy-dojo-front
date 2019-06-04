@@ -113,14 +113,14 @@ class App extends React.Component {
     return (
       <div className="container d-flex align-items-center justify-content-center" style={{height: '100%'}}>
         <div className="row w-100">
-          <div className="col-6">
+          <div className="col-md-6">
             {
               this.state.formDone ?
               this.renderClock() :
               this.renderForm()
             }
           </div>
-          <div className="col-6 p-3 bg-warning d-flex flex-column align-items-center">
+          <div className="col-md-6 p-3 bg-warning d-flex flex-column align-items-center">
             <h3 className="text-center">
               Fila
             </h3>
