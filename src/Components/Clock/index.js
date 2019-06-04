@@ -57,6 +57,7 @@ export default class Clock extends Component {
     this.setState({queueCounter: 0});
   }
 
+  
   newCodingTurn = () => {
     this.resetCodingTurnTime();
     this.resetCodingBreakTime();
@@ -77,13 +78,21 @@ export default class Clock extends Component {
       this.decrementCodingTurnTime();
       this.setState({highlightItem: 'codingTurnTime'})
       return this.decrementer();
+
     }
     else if (codingBreakTime > 0) {
+      if (
+        codingTurnTime === 0 &&
+        codingBreakTime === this.props.codingBreakTime
+      ) {
+        this.handleEndAudio();
+      }
       this.decrementCodingBreakTime();
       this.setState({highlightItem: 'codingBreakTime'})
       return this.decrementer();
     }
     else {
+      this.handleStartAudio();
       this.setState({highlightItem: 'codingTurnTime'})
       this.newCodingTurn();
       return this.decrementer();
@@ -102,7 +111,7 @@ export default class Clock extends Component {
       return this.decrementer();
     }
   }
-
+  
   checkEnd = () => {
     let queueTurn = this.state.queueTurn;
     let totalSessions = this.state.totalSessions;
@@ -114,15 +123,32 @@ export default class Clock extends Component {
       this.setState({endend: true});
     }
   }
-  
+
   handleStartTimer = (e) => {
     e.preventDefault();
     this.decrementer();
   }
-  
+
+  handleStartAudio = () => {
+    let audio = new Audio(
+      'https://grupy-dojo.s3.us-east-2.amazonaws.com/round-start.mp3'
+    );
+    audio.play();
+  }
+
+  handleEndAudio = () => {
+    let audio = new Audio(
+      'https://grupy-dojo.s3.us-east-2.amazonaws.com/finish-him.mp3'
+    );
+    audio.play();
+  }
+
   handlePausePlayClock = async (e) => {
     e.preventDefault();
     let pauseFlag = this.state.pauseFlag;
+    if (this.state.nonStarted) {
+      this.handleStartAudio();
+    }
     await this.setState(
       {pauseFlag: !pauseFlag, nonStarted: false}
     );
