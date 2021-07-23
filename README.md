@@ -1,3 +1,6 @@
-yarn install
+Exemplo em https://jotavemonte.github.io/Grupy-dojo-front/
 
-yarn start
+Para rodar local:
+
+`yarn install`
+`yarn start`
