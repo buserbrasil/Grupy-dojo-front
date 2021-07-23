@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Grupy-dojo-front/static/css/main.8ad07c60.chunk.css",
-    "main.js": "/Grupy-dojo-front/static/js/main.e1e20c9d.chunk.js",
-    "main.js.map": "/Grupy-dojo-front/static/js/main.e1e20c9d.chunk.js.map",
+    "main.js": "/Grupy-dojo-front/static/js/main.96559bd8.chunk.js",
+    "main.js.map": "/Grupy-dojo-front/static/js/main.96559bd8.chunk.js.map",
     "runtime~main.js": "/Grupy-dojo-front/static/js/runtime~main.9b0b49a0.js",
     "runtime~main.js.map": "/Grupy-dojo-front/static/js/runtime~main.9b0b49a0.js.map",
-    "static/js/2.397acfd0.chunk.js": "/Grupy-dojo-front/static/js/2.397acfd0.chunk.js",
-    "static/js/2.397acfd0.chunk.js.map": "/Grupy-dojo-front/static/js/2.397acfd0.chunk.js.map",
+    "static/js/2.23830df8.chunk.js": "/Grupy-dojo-front/static/js/2.23830df8.chunk.js",
+    "static/js/2.23830df8.chunk.js.map": "/Grupy-dojo-front/static/js/2.23830df8.chunk.js.map",
     "index.html": "/Grupy-dojo-front/index.html",
-    "precache-manifest.3cc5685d2d0384df0b91dd988fc07102.js": "/Grupy-dojo-front/precache-manifest.3cc5685d2d0384df0b91dd988fc07102.js",
+    "precache-manifest.c59ec33d4944c00123464f95eaab7cec.js": "/Grupy-dojo-front/precache-manifest.c59ec33d4944c00123464f95eaab7cec.js",
     "service-worker.js": "/Grupy-dojo-front/service-worker.js",
     "static/css/main.8ad07c60.chunk.css.map": "/Grupy-dojo-front/static/css/main.8ad07c60.chunk.css.map"
   }
